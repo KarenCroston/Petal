@@ -5,25 +5,25 @@ const plantSearchCards = [
     {
       title: "Plant 1",
       description: "Planty plant plant",
-      url: "https://picsum.photos/100/100",
+      url: "https://picsum.photos/300/300",
       ID: 5314
     },
     {
       title: "Plant 2",
       description: "Planty plant plant",
-      url: "https://picsum.photos/100/100",
+      url: "https://picsum.photos/300/300",
       ID: 5315
     },
     {
       title: "Plant 4",
       description: "Planty plant plant",
-      url: "https://picsum.photos/100/100",
+      url: "https://picsum.photos/300/300",
       ID: 5316
     },
     {
       title: "Plant 4",
       description: "Planty plant plant",
-      url: "https://picsum.photos/100/100",
+      url: "https://picsum.photos/300/300",
       ID: 5316
     },
   ];

@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import PlantDetail from "./components/PlantDetail";
+import SearchPage from "./pages/SearchPage";
 
-import Home from "./components/Home";
-import SearchResults from "./components/SearchResults";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [user, setUser] = useState({});
@@ -21,10 +21,10 @@ function App() {
             path="/plantdetail"
             element={<PlantDetail plantId={plant} />}
           />
-          <Route path="/home" element={<Home setPlant={setPlant} />} />
+          <Route path="/home" element={<Dashboard setPlant={setPlant} />} />
           <Route
             path="/searchresults"
-            element={<SearchResults setPlant={setPlant} />}
+            element={<SearchPage setPlant={setPlant} />}
           />
         </Routes>
       </Router>
