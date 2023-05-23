@@ -3,34 +3,6 @@ import SearchPageCards from './SearchPageCards';
 // import {searchValue} from './DashHeader'
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-
-
-const plantSearchCards = [
-    {
-      title: "Plant 1",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5314
-    },
-    {
-      title: "Plant 2",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5315
-    },
-    {
-      title: "Plant 4",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5316
-    },
-    {
-      title: "Plant 4",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5316
-    },
-  ];
   
   function SearchCardListView({setPlant}){
     console.log(setPlant);
@@ -45,12 +17,16 @@ const plantSearchCards = [
         setPlantData(response?.data?.data)
       })
     }, [search, setPlantData]);
-    // common_name
+
+
+    // function capitalizeFirstLetter(plantName) {
+    //   return plantName.charAt(0).toUpperCase() + plantName.slice(1);
+
     return(
       plantData?.map(data => (
           <SearchPageCards
             key={data?.id}
-            title={data?.common_name}
+            title={data?.common_name.charAt(0).toUpperCase() + data?.common_name.slice(1)}
             url={data?.default_image?.original_url}
             setPlant={setPlant}
           />
