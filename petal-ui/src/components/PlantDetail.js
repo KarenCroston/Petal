@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "../styles/plant-detail.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const PlantDetail = ({ plantId }) => {
+const PlantDetail = ({ match }) => {
   const navigate = useNavigate();
   const [plantDetail, setPlantDetail] = useState(null);
+  let params = useParams();
   useEffect(() => {
+    console.log(params);
     const getplantdetails = async () => {
       const { data } = await axios.get(
-        `https://perenual.com/api/species/details/${plantId}?key=sk-maKn6469d505bb7fb1003`
+        `https://perenual.com/api/species/details/${params.id}?key=sk-maKn6469d505bb7fb1003`
       );
       const { common_name, default_image, sunlight, watering, description } =
         data;
