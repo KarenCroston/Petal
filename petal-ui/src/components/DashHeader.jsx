@@ -84,8 +84,8 @@ const styles = {
                 sx={styles.searchBar}
                 id="outlined-adornment-weight"
                 endAdornment={(
-                    // <Button onClick={buttonClick} sx={{height:0, width:0,padding:0, minWidth:30}}>
-                    <Button component={Link} to={{pathname: "/searchresults", search: inptVal}}>                  
+                    // <Button onClick={buttonClick} }>
+                    <Button component={Link} to={{pathname: "/searchresults", search: inptVal}} sx={{height:0, width:0,padding:0, minWidth:30}}>                  
                         <InputAdornment position="end">
                             <SearchIcon/>
                         </InputAdornment>
