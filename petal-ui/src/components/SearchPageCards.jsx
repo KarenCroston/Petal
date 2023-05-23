@@ -18,18 +18,19 @@ const styles = {
 }
 
  
-function SearchPageCards({title, description,url, setPlant}) {
+function SearchPageCards({title, description,url,id}) {
   const navigate = useNavigate();
-  const handleButtonClick = () => {
-    setPlant(2);
-    navigate("/plantdetail");
+  const handleButtonClick = (evt) => {
+    console.log(evt.target)
+    //allows variables in strings
+    navigate(`/plantdetail/${evt.currentTarget.id}`);
   };
     return(
         <>
-        <div styles={{background: '#518273'}} onClick={handleButtonClick}>
+        <div id={id} styles={{background: '#518273'}} onClick={(event) =>handleButtonClick(event)}>
         <Card sx={styles.root}>
         <CardActionArea sx={{justifyContent: 'flex-start', height:CARD_HEIGHT}}
-        onClick={handleButtonClick}>
+        >
         <div style={{display: 'flex', flexDirection: 'row', padding: '20px 0px 0px 10px'}}>
 
         <div style={{width: '30%', height: CARD_HEIGHT, marginTop:15}}>

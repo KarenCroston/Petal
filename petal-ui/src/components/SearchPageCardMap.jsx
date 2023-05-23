@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import SearchPageCards from './SearchPageCards';
+import axios from "axios";
 
 const plantSearchCards = [
     {
@@ -28,16 +29,33 @@ const plantSearchCards = [
     },
   ];
   
-  function SearchCardListView({setPlant}){
+  function SearchCardListView(){
+    const [plantList, setPlantList] = useState(null);
+    useEffect(() => {
+        
+      const getallplantdetails = async () => {
+        const { data } = await axios.get(
+          `https://perenual.com/api/species-list?page=1&key=sk-maKn6469d505bb7fb1003`
+        );
+       console.log(data);
+       
+
+     setPlantList(data.data);
+    
+  };
+  getallplantdetails();
+}, []);
     return(
-        plantSearchCards.map(searchCards => (
+      <div>
+        {plantList && (plantList.map(plant => (
             <SearchPageCards
-            title={searchCards.title}
-            description={searchCards.description}
-            url = {searchCards.url}
-            setPlant={setPlant}
+            title={plant.common_name}
+            description={plant.description}
+            url={plant.default_image.medium_url}
+            id={plant.id}
             />
-        ))
+        )))}
+        </div>
     );
   }
   export default SearchCardListView

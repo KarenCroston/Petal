@@ -42,6 +42,7 @@ export const SignIn = ({ setUser }) => {
           <label htmlFor="email">Enter your username or email address</label>
           <input
             type="email"
+            aria-label="email"
             placeholder="yourmail@gmail.com"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -50,13 +51,16 @@ export const SignIn = ({ setUser }) => {
           <label htmlFor="password">Enter your password</label>
           <input
             type="password"
-            placeholder="*********"
+            aria-label="password"
+            placeholder="password"
             name="password"
             value={pass}
             onChange={(e) => setPass(e.target.value)}
           />
           <div className="button-container">
-            <button type="submit">Sign in</button>
+            <button type="submit" aria-label="signin">
+              Sign in
+            </button>
           </div>
         </form>
       </div>
