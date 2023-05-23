@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Carousel from '../components/SwipableCards';
 import DashHeader from '../components/DashHeader';
 import '../index.css';
@@ -23,6 +23,7 @@ function Dashboard() {
   const handleButtonClick = () => {
     navigate("/searchresults");
   };
+
     return (
       <div className = "dashBoardWrapper">
         <DashHeader/>
@@ -31,6 +32,7 @@ function Dashboard() {
         <Typography sx={styles.root}>
           Your Plant Library
         </Typography>
+
         <Carousel /> 
 
         <Typography sx={styles.root}>

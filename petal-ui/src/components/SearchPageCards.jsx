@@ -37,7 +37,7 @@ function SearchPageCards({title, description,url,id}) {
         >
         <div style={{display: 'flex', flexDirection: 'column'}}>
 
-        <div style={{width: '95%',marginLeft:10, marginTop: -47}}>
+        <div style={{width: '95%',marginLeft:10, marginTop: -22}}>
           <CardMedia
             sx={{borderRadius: '16px'}}
             component="img"
@@ -51,6 +51,12 @@ function SearchPageCards({title, description,url,id}) {
               <div style={{marginTop: 15}}>
                 <Typography gutterBottom variant="h5" component="div">
                   {title}
+                </Typography>
+              </div>
+
+              <div style={{}}>
+                <Typography>
+                  {description}
                 </Typography>
               </div>
 
