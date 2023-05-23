@@ -9,9 +9,12 @@ body {
   min-height: 100vh;
   margin:0;
   width:100%;
-  
 }
-
+.back-btn {
+  color: black;
+  margin-left: 14px;
+  padding: 0px;
+}
 .search-results-container {
   background-color: white;
   color: black;
@@ -89,15 +92,13 @@ body {
   
   
 }
-@media only screen and (min-width: 600px) {
-  .search-results-container,
-  .plant-care-container,
-  .overview-container {
-    font-size: 14px;
-    padding: 10px;
-    border-radius: 0;
-    flex-grow: 1;
-  }
+.search-results-container,
+.plant-care-container,
+.overview-container {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 30;
+  flex-grow: 1;
 }
 
 .back-btn {
