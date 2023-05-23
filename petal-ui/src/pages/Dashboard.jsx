@@ -4,7 +4,7 @@ import DashHeader from '../components/DashHeader';
 import '../index.css';
 import TopCarousel from '../components/TopSwipableCards';
 import { Typography } from '@mui/material';
-
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   root: {
@@ -19,7 +19,10 @@ const styles = {
 }
 
 function Dashboard() {
-
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/searchresults");
+  };
     return (
       <div className = "dashBoardWrapper">
         <DashHeader/>

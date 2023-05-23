@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SearchPageHeader from '../components/SearchPageHeader'
 import '../index.css'
+
 import SearchCardListView from '../components/SearchPageCardMap'
 
 function SearchPage() {
@@ -14,4 +15,4 @@ function SearchPage() {
     )
 }
 
-export default SearchPage
+export default SearchPage;

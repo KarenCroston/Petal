@@ -21,14 +21,15 @@
   .auth-form-container {
     /* position: relative; */
     background: rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 5em;
+    margin: 0.5rem;
 
   }
   @media screen and (min-width: 600px) {
     .auth-form-container {
-      padding: 5em;
-      border: 1px solid white;
-      border-radius: 30px;
-      margin: 0.5rem;
+     /*  */
     }
   }
   
