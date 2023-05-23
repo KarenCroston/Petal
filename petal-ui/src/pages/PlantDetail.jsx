@@ -4,12 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const PlantDetail = ({ match }) => {
+const PlantDetail = () => {
   const navigate = useNavigate();
   const [plantDetail, setPlantDetail] = useState(null);
   let params = useParams();
   useEffect(() => {
-    console.log(params);
     const getplantdetails = async () => {
       const { data } = await axios.get(
         `https://perenual.com/api/species/details/${params.id}?key=sk-maKn6469d505bb7fb1003`
@@ -26,7 +25,7 @@ const PlantDetail = ({ match }) => {
       });
     };
     getplantdetails();
-  }, []);
+  }, [params.id]);
   function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
@@ -53,6 +52,7 @@ const PlantDetail = ({ match }) => {
               <h3>{plantDetail.common_name}</h3>
               <img
                 className="plant-image"
+                alt={plantDetail.common_name}
                 src={plantDetail.default_image.medium_url}
               />
             </div>
@@ -63,15 +63,21 @@ const PlantDetail = ({ match }) => {
           <div className="plant-care-container">
             <ul>
               <li>
-                <img src={require("../styles/leaf.png")} />
+                <img 
+                alt="pruning"
+                src={require("../styles/leaf.png")} />
                 Every 3 weeks
               </li>
               <li>
-                <img src={require("../styles/sun.png")} />
+                <img 
+                alt="sunlight"
+                src={require("../styles/sun.png")} />
                 {plantDetail.sunlight && handleSunlightInfo()}
               </li>
               <li>
-                <img src={require("../styles/water.png")} />
+                <img 
+                alt="watering"
+                src={require("../styles/water.png")} />
                 {plantDetail.watering}
               </li>
             </ul>
