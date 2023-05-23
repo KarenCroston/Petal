@@ -49,7 +49,7 @@ const PlantDetail = () => {
               <ArrowBackIcon sx={{ fontSize: 35 }} />
             </button>
             <div className="name-image-wrapper">
-              <h3>{plantDetail.common_name}</h3>
+              <h3 className="page-title">{plantDetail.common_name}</h3>
               <img
                 className="plant-image"
                 alt={plantDetail.common_name}
