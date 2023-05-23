@@ -17,10 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<SignIn setUser={setUser} />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route
-            path="/plantdetail"
-            element={<PlantDetail plantId={plant} />}
-          />
+          <Route path="plantdetail/:id" element={<PlantDetail />} />
+          {/* add dynamic paramater that can have different values */}
           <Route path="/home" element={<Dashboard setPlant={setPlant} />} />
           <Route
             path="/searchresults"
