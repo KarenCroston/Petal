@@ -106,16 +106,6 @@ function SwipeButtons ({activeStep, setActiveStep,favourites,setFavourites}) {
 
 
 export default function Carousel({favourites, setFavourites, plantData, setPlantData}) {
-  // const [plantArray,set]
-  // const handleAddPlant = (title,description,url,id) => {
-  //   const newPlant = {
-  //     title: title.title,
-  //     description: description.description,
-  //     url: url.url,
-  //     id: id.id,
-  //   }
-
-  //   plantArray([...plantCardData,newPlant])
 
  
   const [activeStep, setActiveStep] = React.useState(0);
