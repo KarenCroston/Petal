@@ -27,17 +27,18 @@ const styles = {
 
 }
 
-export default function PlantCard({ title, description, url }) {
-  
+export default function PlantCard({ title, description, url, plantData, setPlandData }) {
+
     return (
         <Card sx={styles.root}>
             <CardMedia
                 sx={styles.urlstyles}
                 image={url}
                 title="Plant Card"
+                component='img'
             />
             <CardContent>
-                <Typography sx={{padding:0,marginLeft:'-59px'}}>
+                <Typography sx={{padding:0,marginLeft:'-59px',marginTop:-2}}>
                     {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

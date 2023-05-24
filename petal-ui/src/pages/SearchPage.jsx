@@ -4,13 +4,18 @@ import '../index.css'
 
 import SearchCardListView from '../components/SearchPageCardMap'
 
-function SearchPage() {
-    const [plantData, setPlantData] = useState(undefined);
-
+function SearchPage({favourites, setFavourites, plantData,setPlantData}) {
+console.log('searchpage',favourites)
     return(
         <div className = "searchPageWrapper">
+            
             <SearchPageHeader />
-            <SearchCardListView />
+            <SearchCardListView 
+                favourites={favourites} 
+                setFavourites={setFavourites}
+                plantData = {plantData}
+                setPlantData = {setPlantData} 
+            />
         </div>
     )
 }

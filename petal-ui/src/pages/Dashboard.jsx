@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Carousel from '../components/SwipableCards';
 import DashHeader from '../components/DashHeader';
 import '../index.css';
@@ -18,7 +18,8 @@ const styles = {
     }
 }
 
-function Dashboard() {
+function Dashboard({favourites, setFavourites,plantData,setPlantData}) {
+  console.log('this is plantData here for the dashboard',plantData)
   const navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/searchresults");
@@ -33,7 +34,12 @@ function Dashboard() {
           Your Plant Library
         </Typography>
 
-        <Carousel /> 
+        <Carousel 
+        favourites={favourites} 
+        setFavourites={setFavourites} 
+        plantData={plantData}
+        setPlantData={setPlantData}
+        /> 
 
         <Typography sx={styles.root}>
           Top Picks
