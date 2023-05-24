@@ -1,7 +1,10 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
+import { Card, Typography } from '@mui/material';
+import { Button, InputAdornment, OutlinedInput} from '@mui/material';
+import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
-import { Button, Card, InputAdornment, OutlinedInput, Typography } from '@mui/material';
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+
 
 const styles = {
     root: {
@@ -48,10 +51,23 @@ const styles = {
 
 }
 
- function DashHeader() {
+ function DashHeader({searchValue}) {
+
     const navigate = useNavigate();
     const buttonClick = () => { navigate("/searchresults");
- };
+    }
+
+    const [inptVal, setinptVal] = useState("");
+    console.log(inptVal);
+
+    const handleChangeInp=(e) =>{
+        const value = e.target.value;
+        setinptVal(value)
+        searchValue=(inptVal)
+    }
+
+ 
+    
     return (
         
         <Card sx={styles.root}>
@@ -59,17 +75,20 @@ const styles = {
             <div styles={{display:'flex',flexDirection:'row', justifyContent:'center'}}>
             <Typography sx={styles.welcome}> Welcome Back</Typography>
             <Typography sx={styles.name}> Samantha</Typography>
+            </div>
 
+            <div>
             <OutlinedInput
+                onChange = {(e)=>{handleChangeInp(e)}}
                 placeholder='Find your perfect plant'
                 sx={styles.searchBar}
                 id="outlined-adornment-weight"
                 endAdornment={(
-                    <Button onClick={buttonClick} sx={{height:0, width:0,padding:0, minWidth:30}}>
-                    
-                    <InputAdornment position="end">
-                    <SearchIcon/>
-                    </InputAdornment>
+                    // <Button onClick={buttonClick} }>
+                    <Button component={Link} to={{pathname: "/searchresults", search: inptVal}} sx={{height:0, width:0,padding:0, minWidth:30}}>                  
+                        <InputAdornment position="end">
+                            <SearchIcon/>
+                        </InputAdornment>
                     </Button>
                 )}
                 aria-describedby="outlined-weight-helper-text"
@@ -77,9 +96,10 @@ const styles = {
                     'aria-label': 'weight',
                 }}
             />
+
             </div>
         </Card>
     );
-}
 
+}
 export default DashHeader

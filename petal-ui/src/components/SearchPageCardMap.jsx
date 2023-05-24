@@ -1,61 +1,37 @@
-import React, { useEffect,useState } from 'react'
+import {useEffect, useState} from 'react'
 import SearchPageCards from './SearchPageCards';
-import axios from "axios";
-
-const plantSearchCards = [
-    {
-      title: "Plant 1",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5314
-    },
-    {
-      title: "Plant 2",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5315
-    },
-    {
-      title: "Plant 4",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5316
-    },
-    {
-      title: "Plant 4",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      ID: 5316
-    },
-  ];
+// import {searchValue} from './DashHeader'
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
   
-  function SearchCardListView(){
-    const [plantList, setPlantList] = useState(null);
-    useEffect(() => {
-        
-      const getallplantdetails = async () => {
-        const { data } = await axios.get(
-          `https://perenual.com/api/species-list?page=1&key=sk-maKn6469d505bb7fb1003`
-        );
-       console.log(data);
-       
+  function SearchCardListView({setPlant}){
+    console.log(setPlant);
+    const [plantData, setPlantData] = useState(undefined);
+    const location = useLocation();
+    const search = location.search.slice(1);
+    console.log('plantData', plantData)
 
-     setPlantList(data.data);
-    
-  };
-  getallplantdetails();
-}, []);
+    useEffect(() => {
+      axios.get(`https://perenual.com/api/species-list?page=1&key=sk-lZko6450201dec978711&q=${search}`)
+      .then(response => {
+        setPlantData(response?.data?.data)
+      })
+    }, [search, setPlantData]);
+
+
+    // function capitalizeFirstLetter(plantName) {
+    //   return plantName.charAt(0).toUpperCase() + plantName.slice(1);
+
     return(
-      <div>
-        {plantList && (plantList.map(plant => (
-            <SearchPageCards
-            title={plant.common_name}
-            description={plant.description}
-            url={plant.default_image.medium_url}
-            id={plant.id}
-            />
-        )))}
-        </div>
+      plantData?.map(data => (
+          <SearchPageCards
+            key={data?.id}
+            title={data?.common_name.charAt(0).toUpperCase() + data?.common_name.slice(1)}
+            url={data?.default_image?.original_url}
+            description={data?.scientific_name}
+            setPlant={setPlant}
+          />
+        ))
     );
   }
   export default SearchCardListView

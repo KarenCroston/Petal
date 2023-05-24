@@ -1,32 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PlantCard from './PlantCard';
 import SwipeableViews from 'react-swipeable-views';
 import Button from '@mui/material/Button';
 import MobileStepper from '@mui/material/MobileStepper';
 import {useTheme } from '@mui/material/styles';
+import {v4 as uuidv4} from 'uuid';
 
-const plantCardData = [
-  {
-    title: "Plant 1",
-    description: "Planty plant plant",
-    url: "https://picsum.photos/300/300",
-    key: 0
-  },
-  {
-    title: "Plant 2",
-    description: "Planty plant plant",
-    url: "https://picsum.photos/300/300",
-    key: 1
-  },
-  {
-    title: "Plant3",
-    description: "Planty plant plant",
-    url: "https://picsum.photos/300/300",
-    key: 2
-  }
-];
-
-  function SwipeableCards({activeStep, setActiveStep}) {
+  function SwipeableCards({activeStep, setActiveStep,plantCardData,setPlantCardData}) {
     const handleStepChange = (step) => {
       setActiveStep(step);
     };
@@ -41,7 +21,8 @@ const plantCardData = [
         >
           {plantCardData.map(plant => (
               <PlantCard
-                  key={plant.key}
+                  key={uuidv4()}
+                  id={plant.id}
                   title={plant.title}
                   description={plant.description}
                   url={plant.url}
@@ -51,7 +32,7 @@ const plantCardData = [
     );
 }
 
-function SwipeButtons ({activeStep, setActiveStep}) {
+function SwipeButtons ({activeStep, setActiveStep,plantCardData,setPlantCardData}) {
   const theme = useTheme();
 
   const handleNext = () => {
@@ -62,7 +43,7 @@ function SwipeButtons ({activeStep, setActiveStep}) {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const maxSteps = plantCardData.length
+  const maxSteps = plantCardData?.length
 
   return (
     <MobileStepper
@@ -121,19 +102,54 @@ function SwipeButtons ({activeStep, setActiveStep}) {
   )
 }
 
+// function NewPlant(name,url,id){
+//   newPlant = {
+//     id: uuidv4(),
+//     name: name,
+//     url: url,
+//   }
+//   setPlantlist(...plantCardData, newPlant)
+// }
+
 export default function Carousel() {
+
+  const [plantCardData, setPlantCardData] = useState ([
+    {
+      title: "Plant 1",
+      description: "Planty plant plant",
+      url: "https://picsum.photos/300/300",
+      id: 0
+    },
+    {
+      title: "Plant 2",
+      description: "Planty plant plant",
+      url: "https://picsum.photos/300/300",
+      id: 1
+    },
+    {
+      title: "Plant3",
+      description: "Planty plant plant",
+      url: "https://picsum.photos/300/300",
+      id: 2
+    }
+  ])
+  
   const [activeStep, setActiveStep] = React.useState(0);
   console.log('Carousel:', activeStep);
   
   return (
     <>
       <SwipeableCards
+        plantCardData={plantCardData}
+        setPlantCardData={setPlantCardData}
         activeStep={activeStep}
         setActiveStep={setActiveStep}
       />
       <SwipeButtons
+        plantCardData={plantCardData}
         activeStep={activeStep}
         setActiveStep={setActiveStep}
+        setPlantCardData={setPlantCardData}
       />
     </>
   )
