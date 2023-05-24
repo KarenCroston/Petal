@@ -26,6 +26,7 @@ import { useLocation } from 'react-router-dom';
       plantData?.map(data => (
           <SearchPageCards
             key={data?.id}
+            id={data?.id}
             title={data?.common_name.charAt(0).toUpperCase() + data?.common_name.slice(1)}
             url={data?.default_image?.original_url}
             description={data?.scientific_name}
