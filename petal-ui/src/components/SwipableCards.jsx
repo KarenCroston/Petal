@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PlantCard from './PlantCard';
 import SwipeableViews from 'react-swipeable-views';
 import Button from '@mui/material/Button';
 import MobileStepper from '@mui/material/MobileStepper';
 import {useTheme } from '@mui/material/styles';
-import {v4 as uuidv4} from 'uuid';
 
-  function SwipeableCards({activeStep, setActiveStep,plantCardData,setPlantCardData}) {
+  function SwipeableCards({activeStep, setActiveStep,favourites,setFavourites,plantData,setPlantData}) {
     const handleStepChange = (step) => {
       setActiveStep(step);
     };
@@ -19,20 +18,23 @@ import {v4 as uuidv4} from 'uuid';
           onChangeIndex={handleStepChange}
           enableMouseEvents
         >
-          {plantCardData.map(plant => (
+          {favourites.map(plant => (
               <PlantCard
-                  key={uuidv4()}
+                  plantData={plantData}
+                  setPlantData={setPlantData}
+                  key={plant.id}
                   id={plant.id}
                   title={plant.title}
                   description={plant.description}
                   url={plant.url}
+                  component='div'
               />
           ))}
         </SwipeableViews>
     );
 }
 
-function SwipeButtons ({activeStep, setActiveStep,plantCardData,setPlantCardData}) {
+function SwipeButtons ({activeStep, setActiveStep,favourites,setFavourites}) {
   const theme = useTheme();
 
   const handleNext = () => {
@@ -43,7 +45,7 @@ function SwipeButtons ({activeStep, setActiveStep,plantCardData,setPlantCardData
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const maxSteps = plantCardData?.length
+  const maxSteps = favourites?.length
 
   return (
     <MobileStepper
@@ -102,54 +104,27 @@ function SwipeButtons ({activeStep, setActiveStep,plantCardData,setPlantCardData
   )
 }
 
-// function NewPlant(name,url,id){
-//   newPlant = {
-//     id: uuidv4(),
-//     name: name,
-//     url: url,
-//   }
-//   setPlantlist(...plantCardData, newPlant)
-// }
 
-export default function Carousel() {
+export default function Carousel({favourites, setFavourites, plantData, setPlantData}) {
 
-  const [plantCardData, setPlantCardData] = useState ([
-    {
-      title: "Plant 1",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      id: 0
-    },
-    {
-      title: "Plant 2",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      id: 1
-    },
-    {
-      title: "Plant3",
-      description: "Planty plant plant",
-      url: "https://picsum.photos/300/300",
-      id: 2
-    }
-  ])
-  
+ 
   const [activeStep, setActiveStep] = React.useState(0);
-  console.log('Carousel:', activeStep);
   
   return (
     <>
       <SwipeableCards
-        plantCardData={plantCardData}
-        setPlantCardData={setPlantCardData}
+        favourites={favourites}
+        setFavourites={setFavourites}
         activeStep={activeStep}
         setActiveStep={setActiveStep}
+        plantData={plantData}
+        setPlantData={setPlantData}
       />
       <SwipeButtons
-        plantCardData={plantCardData}
+        favourites={favourites}
         activeStep={activeStep}
         setActiveStep={setActiveStep}
-        setPlantCardData={setPlantCardData}
+        setFavourites={setFavourites}
       />
     </>
   )

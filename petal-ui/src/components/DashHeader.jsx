@@ -1,9 +1,8 @@
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import { Card, Typography } from '@mui/material';
 import { Button, InputAdornment, OutlinedInput} from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
-import axios from 'axios';
 
 
 const styles = {

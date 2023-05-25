@@ -4,27 +4,25 @@ import SearchPageCards from './SearchPageCards';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
   
-  function SearchCardListView({setPlant}){
-    console.log(setPlant);
-    const [plantData, setPlantData] = useState(undefined);
+  function SearchCardListView({setPlant, favourites, setFavourites,plantData,setPlantData,}){
+    // const [plantData, setPlantData] = useState(undefined);
+    // const location = useLocation();
+    // const search = location.search.slice(1);
     const location = useLocation();
     const search = location.search.slice(1);
-    console.log('plantData', plantData)
 
-    useEffect(() => {
-      axios.get(`https://perenual.com/api/species-list?page=1&key=sk-lZko6450201dec978711&q=${search}`)
-      .then(response => {
-        setPlantData(response?.data?.data)
-      })
-    }, [search, setPlantData]);
-
-
-    // function capitalizeFirstLetter(plantName) {
-    //   return plantName.charAt(0).toUpperCase() + plantName.slice(1);
+ useEffect(() => {
+    axios.get(`https://perenual.com/api/species-list?page=1&key=sk-lZko6450201dec978711&q=${search}`)
+    .then(response => {
+      setPlantData(response?.data?.data)
+    })
+  }, [search, setPlantData]);
 
     return(
       plantData?.map(data => (
           <SearchPageCards
+            favourites={favourites}
+            setFavourites={setFavourites}
             key={data?.id}
             id={data?.id}
             title={data?.common_name.charAt(0).toUpperCase() + data?.common_name.slice(1)}

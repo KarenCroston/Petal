@@ -13,7 +13,7 @@ const styles = {
         borderRadius: 4,
         padding: 4,
         paddingBottom: 10,
-        marginTop:10,
+        marginTop:7,
         marginRight: 1,
         marginLeft: 1,
     
