@@ -3,6 +3,7 @@ import "../styles/plant-detail.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import {Button} from '@mui/material';
 
 const PlantDetail = () => {
   const navigate = useNavigate();
@@ -31,12 +32,27 @@ const PlantDetail = () => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   const handleSunlightInfo = () => {
-  //   const sunlightDetails = plantDetail.sunlight.map((sunlightInfo) => {
-  //     return capitalizeFirstLetter(sunlightInfo);
-    // });
-
     return capitalizeFirstLetter (plantDetail.sunlight.join(" or "));
   };
+
+  const handleFavourites = () => {
+    const plantDetails = {
+      title: plantDetail.common_name,
+        description: plantDetail.description,
+        url: plantDetail.default_image.medium_url,
+        id: params.id,
+    }
+
+    const plantsInStorage =localStorage.getItem("favourites")
+    const plantList = JSON.parse(plantsInStorage)
+    
+    const isInStorage = plantList?.find((plant) => plant.id === plantDetail.id)
+    if(!isInStorage){
+      const plants = plantsInStorage ? plantsInStorage : []
+      localStorage.setItem("favourites",JSON.stringify([ ...plants,plantDetails]))   
+    }
+    
+  }
 
   return (
     <div className="container">
@@ -82,6 +98,15 @@ const PlantDetail = () => {
                 {plantDetail.watering}
               </li>
             </ul>
+            <Button 
+              onClick={handleFavourites}
+              sx={{height:0, width:0, display:'flex', disableRipple:'true'}}
+              >
+              <img src={require("../styles/Favourites.png")}>
+
+              </img>
+
+              </Button>
           </div>
           <div className="overview-container">
             <h3>Overview</h3>

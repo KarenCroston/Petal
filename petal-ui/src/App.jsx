@@ -34,6 +34,36 @@ function App() {
       }
     ])
 
+    useEffect(() => {
+      axios.get(`https://perenual.com/api/species-list?page=1&key=sk-lZko6450201dec978711`)
+      .then(response => {
+        const storedPlants = JSON.parse(localStorage.getItem("favourites"))
+        setPlantData(response?.data?.data)
+
+        storedPlants.forEach((storedPlant)=>{
+          response.data.data.filter((plant) => {
+
+            if(plant.id===Number(storedPlant.id)){
+              console.log({plant})
+              setFavourites([...favourites,{
+                title: plant.common_name,
+        description: plant.description,
+        url: plant.default_image.medium_url,
+        id: plant.id
+              }])
+            }
+          })
+        })
+        
+      })
+      }, []);
+
+
+    // useEffect(() => {
+    //   const test = localStorage.getItem("favourites")
+    //   console.log({test})
+    // },[])
+
   return (
     <div className="App">
       <Router>
