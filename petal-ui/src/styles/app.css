@@ -9,6 +9,7 @@
     color: #393939;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
+    width: 480px;
   }
   
   .auth-form-container,
@@ -21,13 +22,13 @@
   .auth-form-container {
     /* position: relative; */
     background: rgba(255, 255, 255, 0.5);
-    border: 1px solid white;
+    border: 1p20 solid white;
     border-radius: 30px;
     padding: 5em;
     margin: 0.5rem;
 
   }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 480px) {
     .auth-form-container {
      /*  */
     }
@@ -93,4 +94,9 @@
   }
   .error-message {
     color:red;
+  }
+
+  .page-title {
+    margin-left: 20px;
+    padding: 0px;
   }

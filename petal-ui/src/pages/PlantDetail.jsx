@@ -13,7 +13,7 @@ const PlantDetail = () => {
       const { data } = await axios.get(
         `https://perenual.com/api/species/details/${params.id}?key=sk-maKn6469d505bb7fb1003`
       );
-      const { common_name, default_image, sunlight, watering, description } =
+      const { common_name, default_image, sunlight, watering, description, cycle} =
         data;
 
       setPlantDetail({
@@ -22,6 +22,7 @@ const PlantDetail = () => {
         sunlight,
         watering,
         description,
+        cycle,
       });
     };
     getplantdetails();
@@ -30,11 +31,11 @@ const PlantDetail = () => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   const handleSunlightInfo = () => {
-    const sunlightDetails = plantDetail.sunlight.map((sunlightInfo) => {
-      return capitalizeFirstLetter(sunlightInfo);
-    });
+  //   const sunlightDetails = plantDetail.sunlight.map((sunlightInfo) => {
+  //     return capitalizeFirstLetter(sunlightInfo);
+    // });
 
-    return sunlightDetails.join(" ");
+    return capitalizeFirstLetter (plantDetail.sunlight.join(" or "));
   };
 
   return (
@@ -49,7 +50,7 @@ const PlantDetail = () => {
               <ArrowBackIcon sx={{ fontSize: 35 }} />
             </button>
             <div className="name-image-wrapper">
-              <h3>{plantDetail.common_name}</h3>
+              <h3 className="page-title">{plantDetail.common_name}</h3>
               <img
                 className="plant-image"
                 alt={plantDetail.common_name}
@@ -64,9 +65,9 @@ const PlantDetail = () => {
             <ul>
               <li>
                 <img 
-                alt="pruning"
+                alt="cycle"
                 src={require("../styles/leaf.png")} />
-                Every 3 weeks
+                {plantDetail.cycle}
               </li>
               <li>
                 <img 

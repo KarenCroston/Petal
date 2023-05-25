@@ -25,13 +25,13 @@ const styles = {
 function SearchPageCards({ title, url, description, id,favourites, setFavourites}) {
   const navigate = useNavigate();
   const handleButtonClick = (evt) => {
-    console.log("SearchPageCards event: " + evt.target)
-    debugger;
-    navigate(`/plantdetail/${evt.currentTarget.id}`);
+    navigate(`/plantdetail/${id}`);
   };
     return(
         <>
-        <div id={id} styles={{background: '#518273'}} >
+        <div styles={{background: '#518273'}} 
+        
+        >
         <Card sx={styles.root}>
         {/* <CardActionArea sx={{justifyContent: 'flex-start', height:200, width:360, backgroundColor:'blue', marginTop:-13}}
         > */}
@@ -39,7 +39,7 @@ function SearchPageCards({ title, url, description, id,favourites, setFavourites
 
         <div style={{width: '95%',marginLeft:10, marginTop: -15}}>
           <CardMedia
-            onClick={(event) =>handleButtonClick(event)}
+            onClick={handleButtonClick}
             sx={{borderRadius: '16px'}}
             component="img"
             width={100}
