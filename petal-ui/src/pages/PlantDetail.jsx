@@ -46,7 +46,7 @@ const PlantDetail = () => {
     const plantsInStorage =localStorage.getItem("favourites")
     const plantList = JSON.parse(plantsInStorage)
     
-    const isInStorage = plantList?.find((plant) => plant.id === plantDetail.id)
+    const isInStorage = plantList?.find((plant) => plant.id === plantDetails.id)
     if(!isInStorage){
       const plants = plantsInStorage ? plantsInStorage : []
       localStorage.setItem("favourites",JSON.stringify([ ...plants,plantDetails]))   
