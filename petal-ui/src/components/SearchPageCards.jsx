@@ -24,6 +24,7 @@ const styles = {
  
 function SearchPageCards({ title, url, description, id,favourites, setFavourites}) {
   const navigate = useNavigate();
+  console.log('info you need', favourites)
   const handleButtonClick = (evt) => {
     navigate(`/plantdetail/${id}`);
   };

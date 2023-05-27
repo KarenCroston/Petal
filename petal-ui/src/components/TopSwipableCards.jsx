@@ -8,22 +8,28 @@ import {useTheme } from '@mui/material/styles';
 
 const plantCardData = [
   {
-    title: "Plant 1",
-    description: "Planty plant plant",
-    url: "https://picsum.photos/300/300",
-    key: 0
+    title: "Butterflies Magnolia",
+    description: "Magnolia 'Butterflies'",
+    url: "https://perenual.com/storage/species_image/328_magnolia_butterflies/og/magnolia-yellow-blossom-magnolia-acuminata-butterflies-magnoliengewaechs-bloom.jpg",
+    key: 328
   },
   {
-    title: "Plant 2",
-    description: "Planty plant plant",
-    url: "https://picsum.photos/300/300",
-    key: 1
+    title: "Marilyn Magnolia",
+    description: "Magnolia 'Marilyn'",
+    url: "https://perenual.com/storage/species_image/333_magnolia_marilyn/og/pexels-photo-4099162.jpg",
+    key: 333
   },
   {
-    title: "Plant3",
-    description: "Planty plant plant",
-    url: "https://picsum.photos/300/300",
-    key: 2
+    title: "Yellow Bird Magnolia",
+    description: "Magnolia 'Yellow Bird'",
+    url: "https://perenual.com/storage/species_image/337_magnolia_yellow_bird/og/7384703532_7b3c58347a_b.jpg",
+    key: 337
+  },
+  {
+    title: "Little Gem Magnolia",
+    description: "Magnolia Grandiflora",
+    url: "https://perenual.com/storage/species_image/5398_narcissus_pops_legacy/og/2560px-thumbnail.jpg",
+    key: 337
   }
 ];
 
