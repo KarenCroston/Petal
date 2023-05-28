@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const styles = {
     root: {
@@ -23,15 +24,21 @@ const styles = {
         padding:0,
         margin:1,
         borderRadius: 3, 
+        cursor:"pointer"
     }
 
 }
 
-export default function PlantCard({ title, description, url, plantData, setPlandData }) {
+export default function PlantCard({ title, description, url, id }) {
+    const navigate = useNavigate()
+    const handleButtonClick = () => {
+        navigate(`/plantdetail/${id}`);
+      };
 
     return (
         <Card sx={styles.root}>
             <CardMedia
+            onClick={handleButtonClick}
                 sx={styles.urlstyles}
                 image={url}
                 title="Plant Card"

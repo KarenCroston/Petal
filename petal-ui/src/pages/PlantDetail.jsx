@@ -98,15 +98,19 @@ const PlantDetail = () => {
                 {plantDetail.watering}
               </li>
             </ul>
+            <div className="fav-button">
             <Button 
               onClick={handleFavourites}
-              sx={{height:0, width:0, display:'flex', disableRipple:'true'}}
+              
               >
               <img src={require("../styles/Favourites.png")}>
 
               </img>
 
               </Button>
+
+            </div>
+            
           </div>
           <div className="overview-container">
             <h3>Overview</h3>

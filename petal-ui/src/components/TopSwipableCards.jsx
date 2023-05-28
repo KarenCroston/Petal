@@ -11,31 +11,37 @@ const plantCardData = [
     title: "Butterflies Magnolia",
     description: "Magnolia 'Butterflies'",
     url: "https://perenual.com/storage/species_image/328_magnolia_butterflies/og/magnolia-yellow-blossom-magnolia-acuminata-butterflies-magnoliengewaechs-bloom.jpg",
-    key: 328
+    key: 328,
+    id: 328
   },
   {
     title: "Marilyn Magnolia",
     description: "Magnolia 'Marilyn'",
     url: "https://perenual.com/storage/species_image/333_magnolia_marilyn/og/pexels-photo-4099162.jpg",
-    key: 333
+    key: 333,
+    id: 333
   },
   {
     title: "Yellow Bird Magnolia",
     description: "Magnolia 'Yellow Bird'",
     url: "https://perenual.com/storage/species_image/337_magnolia_yellow_bird/og/7384703532_7b3c58347a_b.jpg",
-    key: 337
+    key: 337,
+    id: 338
   },
   {
     title: "Little Gem Magnolia",
     description: "Magnolia Grandiflora",
     url: "https://perenual.com/storage/species_image/5398_narcissus_pops_legacy/og/2560px-thumbnail.jpg",
-    key: 337
+    key: 337,
+    id: 337
+    
   }
 ];
 
   function SwipeableCards({activeStep, setActiveStep}) {
     const handleStepChange = (step) => {
       setActiveStep(step);
+      
     };
 
     return (
@@ -49,6 +55,7 @@ const plantCardData = [
           {plantCardData.map(plant => (
               <PlantCard
                   key={plant.key}
+                  id={plant.id}
                   title={plant.title}
                   description={plant.description}
                   url={plant.url}
