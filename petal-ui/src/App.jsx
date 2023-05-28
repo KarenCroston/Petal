@@ -18,19 +18,19 @@ function App() {
         title: "Marigold",
         description: "Calendula Officinalis",
         url: "https://perenual.com/storage/species_image/1473_calendula_officinalis/og/52278754303_ec74264930_b.jpg",
-        id: 0
+        id: 1473
       },
       {
         title: "Ornamental Onion",
         description: "Allium 'Lavender Bubbles'",
         url: "https://perenual.com/storage/species_image/677_allium_lavender_bubbles/og/35648651144_c62b038777_b.jpg",
-        id: 1
+        id: 664
       },
       {
         title: "Poeticus Daffodil",
         description: "Narcissus 'Actaea'",
         url: "https://perenual.com/storage/species_image/5315_narcissus_actaea/og/5642949915_9498d6d20c_b.jpg",
-        id: 2
+        id: 5315
       }
     ])
 
