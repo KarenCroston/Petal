@@ -20,10 +20,8 @@ const styles = {
 
 function Dashboard({favourites, setFavourites,plantData,setPlantData}) {
   console.log('this is plantData here for the dashboard',plantData)
-  const navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate("/searchresults");
-  };
+  
+  
 
     return (
       <div className = "dashBoardWrapper">

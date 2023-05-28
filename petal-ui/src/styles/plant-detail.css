@@ -92,6 +92,7 @@ body {
   
   
 }
+
 .search-results-container,
 .plant-care-container,
 .overview-container {
@@ -99,6 +100,18 @@ body {
   padding: 10px;
   border-radius: 30;
   flex-grow: 1;
+}
+
+.plant-care-container {
+  display: flex;
+}
+
+.fav-button {
+  position: relative;
+  top:20px;
+  right:-120px;
+  width: 100%;
+  
 }
 
 .back-btn {

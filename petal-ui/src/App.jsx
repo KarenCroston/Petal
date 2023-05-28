@@ -12,7 +12,6 @@ import axios from "axios";
 function App() {
   const [plantData, setPlantData] = useState();
   const [user, setUser] = useState({});
-  const [data,setData] = useState()
   const [favourites, setFavourites] = useState([
       {
         title: "Marigold",
@@ -59,10 +58,7 @@ function App() {
       }, []);
 
 
-    // useEffect(() => {
-    //   const test = localStorage.getItem("favourites")
-    //   console.log({test})
-    // },[])
+   
 
   return (
     <div className="App">
