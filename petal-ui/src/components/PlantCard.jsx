@@ -18,7 +18,7 @@ const styles = {
     },
 
     urlstyles: {
-        height:'80%', 
+        height:'75%', 
         width:'95%',
         padding:0,
         margin:1,
@@ -37,14 +37,14 @@ export default function PlantCard({ title, description, url, plantData, setPland
                 title="Plant Card"
                 component='img'
             />
-            <CardContent>
-                <Typography sx={{padding:0,marginLeft:'-59px',marginTop:-2}}>
+            <div styles ={{display:'flex', flexDirection:'column', flexWrap: 'wrap', justifyContent:'left'}}>
+                <Typography sx={{justifyContent:'left',display:'flex', marginTop:-8, marginLeft:4}}>
                     {title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography sx = {{marginLeft:4, color:'grey'}}>
                     {description}
                 </Typography>
-            </CardContent>
+            </div>
         </Card>
     );
 }

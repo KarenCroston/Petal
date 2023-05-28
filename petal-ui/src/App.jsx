@@ -15,21 +15,21 @@ function App() {
   const [data,setData] = useState()
   const [favourites, setFavourites] = useState([
       {
-        title: "Plant 1",
-        description: "Planty plant plant",
-        url: "https://picsum.photos/300/300",
+        title: "Marigold",
+        description: "Calendula Officinalis",
+        url: "https://perenual.com/storage/species_image/1473_calendula_officinalis/og/52278754303_ec74264930_b.jpg",
         id: 0
       },
       {
-        title: "Plant 2",
-        description: "Planty plant plant",
-        url: "https://picsum.photos/300/300",
+        title: "Ornamental Onion",
+        description: "Allium 'Lavender Bubbles'",
+        url: "https://perenual.com/storage/species_image/677_allium_lavender_bubbles/og/35648651144_c62b038777_b.jpg",
         id: 1
       },
       {
-        title: "Plant3",
-        description: "Planty plant plant",
-        url: "https://picsum.photos/300/300",
+        title: "Poeticus Daffodil",
+        description: "Narcissus 'Actaea'",
+        url: "https://perenual.com/storage/species_image/5315_narcissus_actaea/og/5642949915_9498d6d20c_b.jpg",
         id: 2
       }
     ])

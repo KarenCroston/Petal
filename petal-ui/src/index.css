@@ -24,7 +24,6 @@ code {
   max-width: 400px;
   background-color: white;
   justify-content: space-between;
-  border: 1px solid gray;
 }
 
 #root {
