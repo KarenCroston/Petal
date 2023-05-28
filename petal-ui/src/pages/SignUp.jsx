@@ -23,7 +23,9 @@ export const SignUp = (props) => {
 
   return (
     <div className="main">
-      <h3>Petal Logo</h3>
+      <img 
+                alt="cycle"
+                src={require("../styles/leaf.png")} />
       <div className="auth-form-container">
         <div className="title-container">
           <div>
