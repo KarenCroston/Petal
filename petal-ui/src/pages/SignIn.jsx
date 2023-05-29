@@ -5,11 +5,13 @@ export const SignIn = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
+  // using react router create an instance of navigate
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    // verify email and password have been set before submitting
+    // TODO: extend validation of password to meet basic security conditions
     if (!email || !pass) {
       setError("Please enter both username/email and password");
     } else {
